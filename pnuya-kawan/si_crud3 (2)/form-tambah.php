@@ -11,14 +11,14 @@
         <div class="panel-body">
           <form class="form-horizontal" method="POST" action="proses-simpan.php">
             <div class="form-group">
-              <label class="col-sm-2 control-label">Kode Siswa</label>
+              <label class="col-sm-2 control-label">kode_siswa</label>
               <div class="col-sm-2">
                 <input type="text" class="form-control" name="kode_siswa" maxlength="5" autocomplete="off" required>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Nama Siswa</label>
+              <label class="col-sm-2 control-label">nama_siswa</label>
               <div class="col-sm-3">
                 <input type="text" class="form-control" name="nama_siswa" autocomplete="off" required>
               </div>
@@ -35,7 +35,7 @@
               <label class="col-sm-2 control-label">Tanggal Lahir</label>
               <div class="col-sm-2">
                 <div class="input-group">
-                <input id="tgl_lahir" type="text" name="tanggal_lahir" class="form-control date-picker" data-date-format="yyyy-mm-dd" autocomplete="off" required>
+                  <input id="tgl_lahir" type="text" class="form-control date-picker" data-date-format="yyyy-mm-dd" name="tanggal_lahir" autocomplete="off" required>
                   <span class="input-group-addon">
                     <i class="glyphicon glyphicon-calendar"></i>
                   </span>
@@ -47,11 +47,11 @@
               <label class="col-sm-2 control-label">Jenis Kelamin</label>
               <div class="col-sm-4">
                 <label class="radio-inline">
-                  <input type="radio" name="jenis_kelamin" value="laki-laki"> Laki-laki
+                  <input type="radio" name="jenis_kelamin" value="Laki-laki"> Laki-laki
                 </label>
 
                 <label class="radio-inline">
-                  <input type="radio" name="jenis_kelamin" value="perempuan"> Perempuan
+                  <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan
                 </label>
               </div>
             </div>
@@ -78,32 +78,47 @@
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">No. HP Wali</label>
+              <label class="col-sm-2 control-label">No. HPWali</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" name="no_hpwali" autocomplete="off" maxlength="13" onKeyPress="return goodchars(event,'0123456789',this)" required>
+                <input type="text" class="form-control" name="no_hpwali" autocomplete="off" maxlength="12" onKeyPress="return goodchars(event,'0123456789',this)" required>
               </div>
             </div>
 
+            
             <div class="form-group">
               <label class="col-sm-2 control-label">Nama Wali</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="nama_wali" autocomplete="off" required>
+                <textarea class="form-control" name="nama_wali" rows="3" required></textarea>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Usia Siswa</label>
-              <div class="col-sm-2">
-                <input id="usia" class="form-control" name="usia" autocomplete="off" maxlength="2" onKeyPress="return goodchars(event,'0123456789',this)" required>
+              <label class="col-sm-2 control-label">Usia</label>
+              <div class="col-sm-3">
+                <input id="umur" type="text" class="form-control" name="usia" maxlength="2" onKeyPress="return goodchars(event,'0123456789',this)" required>
               </div>
             </div>
+
 
             <div class="form-group">
               <label class="col-sm-2 control-label">Tahun Lulus</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" name="tahun_lulus" autocomplete="off" maxlength="4" onKeyPress="return goodchars(event,'0123456789',this)" required>
-              </div>
-            </div>
+                <div class="input-group">
+            <span class="input-group-btn">
+            <select name="tahun_lulus" id="tahun_lulus" style="width: 200px" class="form-control">
+                <option value="0">-Pilih Tahun Lulus-</option>
+                <?php
+                $thn_skr = date('Y');
+                for ($x = $thn_skr; $x >= 1980; $x--) {
+                  ?>
+                  <option value="<?php echo $x ?>"><?php echo $x ?></option>
+                  <?php
+                } 
+                  ?>
+                  </select>
+                  </div>
+            </div> 
+              </span>
             
             <hr/>
             <div class="form-group">
