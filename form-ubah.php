@@ -42,7 +42,7 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">Nama Siswa</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="nama_siswa" autocomplete="off" value="<?php echo $nama_siswa; ?>" required>
+                <input type="text" class="form-control" name="nama_siswa" value="<?php echo $nama_siswa; ?>" required>
               </div>
             </div>
 
